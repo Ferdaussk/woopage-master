@@ -1,0 +1,107 @@
+/* This css for dashboard tab */
+.productsarchive_items {
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+.productsarchive_save_btn {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.productsarchive_items {
+    display: flex;
+    gap: 10px;
+}
+.tab-btn {
+cursor: pointer;
+padding: 8px 12px;
+background-color: #f1f1f1;
+}
+.tab-btn.active {
+background-color: #ddd;
+}
+
+/* This css for dashboard accordion */
+.productsarchive_acc_items:hover {
+	background-color: #797979;
+  color: white;
+}
+.productsarchive_acc_items {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #676767;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.productsarchive_acc1_view1_content,
+.productsarchive_acc1_view2_content,
+.productsarchive_acc2_view1_content,
+.productsarchive_acc2_view2_content,
+.productsarchive_acc2_view3_content {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.productsarchive_acc_items.active {
+  background-color: #797979;
+}
+
+.productsarchive_acc1_view1.active + .productsarchive_acc1_view1_content,
+.productsarchive_acc1_view2.active + .productsarchive_acc1_view2_content,
+.productsarchive_acc2_view1.active + .productsarchive_acc2_view1_content,
+.productsarchive_acc2_view2.active + .productsarchive_acc2_view2_content,
+.productsarchive_acc2_view3.active + .productsarchive_acc2_view3_content {
+  display: block;
+}
+.productsarchive_items .tab-btn{
+	float: left;
+	padding: 15px 10px;
+	background: #3e8c91;
+	color: #FFFFFF;
+	margin: 0px 5px 0px 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.productsarchive_items .tab-btn.active{
+	float: left;
+	padding: 15px 10px;
+	background: #929f44;
+	color: #FFFFFF;
+	margin: 0px 5px 0px 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.productsarchive_tab_items {
+    display: flex;
+    width: 100%;
+    margin-left: -4px;
+}
+/* Accordion icon */
+.productsarchive_acc_items {
+  position: relative;
+}
+/* Added styles for accordion icon */
+.productsarchive_acc_items::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+/* Styles for active accordion icon */
+.productsarchive_acc_items.active::after {
+  content: '\25B2';
+}

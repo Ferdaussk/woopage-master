@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FERDAUS SK</title>
+  <style>
+    /* Styles for the tab items */
+    .productsarchive_items {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .tab-btn {
+      cursor: pointer;
+      padding: 8px 12px;
+      background-color: #f1f1f1;
+    }
+    
+    .tab-btn.active {
+      background-color: #ddd;
+    }
+    
+    /* Styles for the accordion items */
+    .productsarchive_buttn_setting {
+      cursor: pointer;
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+    
+    .productsarchive_buttn_setting:hover {
+      background-color: #ddd;
+    }
+    
+    .productsarchive_buttn_setting:focus {
+      outline: none;
+    }
+    
+    .productsarchive_buttn_setting.active {
+      background-color: #ddd;
+    }
+    
+    .productsarchive_acc1_view1_content,
+    .productsarchive_acc1_view2_content,
+    .productsarchive_acc2_view1_content,
+    .productsarchive_acc2_view2_content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    
+    .productsarchive_acc1_view1_content.show,
+    .productsarchive_acc1_view2_content.show,
+    .productsarchive_acc2_view1_content.show,
+    .productsarchive_acc2_view2_content.show {
+      display: block;
+    }
+    
+    </style>
+    <style>
+      /* Accordion */
+.productsarchive_acc1_view1,
+.productsarchive_acc1_view2,
+.productsarchive_acc2_view1,
+.productsarchive_acc2_view2 {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.productsarchive_acc1_view1_content,
+.productsarchive_acc1_view2_content,
+.productsarchive_acc2_view1_content,
+.productsarchive_acc2_view2_content {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.productsarchive_acc1_view1.active,
+.productsarchive_acc1_view2.active,
+.productsarchive_acc2_view1.active,
+.productsarchive_acc2_view2.active {
+  background-color: #ccc;
+}
+
+.productsarchive_acc1_view1.active + .productsarchive_acc1_view1_content,
+.productsarchive_acc1_view2.active + .productsarchive_acc1_view2_content,
+.productsarchive_acc2_view1.active + .productsarchive_acc2_view1_content,
+.productsarchive_acc2_view2.active + .productsarchive_acc2_view2_content {
+  display: block;
+}
+/* Accordion */
+.productsarchive_acc1_view1,
+.productsarchive_acc1_view2,
+.productsarchive_acc2_view1,
+.productsarchive_acc2_view2 {
+  position: relative; /* Added position */
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Added styles for accordion icon */
+.productsarchive_acc1_view1::after,
+.productsarchive_acc1_view2::after,
+.productsarchive_acc2_view1::after,
+.productsarchive_acc2_view2::after {
+  content: '\25BC'; /* Unicode for the down-arrow ▼ */
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+
+/* Styles for active accordion icon */
+.productsarchive_acc1_view1.active::after,
+.productsarchive_acc1_view2.active::after,
+.productsarchive_acc2_view1.active::after,
+.productsarchive_acc2_view2.active::after {
+  content: '\25B2'; /* Unicode for the up-arrow ▲ */
+}
+.custom-select {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-QLCVI2bQbOkN46CkgLMp4V3uZruMm2wDwOsXlSBGNM1av72OFdm2B7TDZp4fAyKk5AR4h5Bx+blXH7hxI3EuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <label for="select-style">Select a Style:</label>
+  <div class="custom-select">
+    <input type="text" id="search-icon" placeholder="Search Icon...">
+    <select name="select-style" id="select-style">
+      <!-- Add your options here, each with an icon class and label -->
+      <option value="default">
+        <i class="fas fa-circle"></i> Default
+      </option>
+      <option value="style2">
+        <i class="fas fa-square"></i> Style 2
+      </option>
+      <option value="style3">
+        <i class="fas fa-star"></i> Style 3
+      </option>
+      <!-- Add more options as needed -->
+    </select>
+  </div>
+
+
+
+  <div class="productsarchive_tab_items">
+    <div class="productsarchive_items">
+      <div id="tab1" class="tab-btn active">Settings</div>
+      <div id="tab2" class="tab-btn">Styles</div>
+    </div>
+  </div>
+  
+  <div class="tab-content" id="tab1Content">
+    <div class="productsarchive_buttn_setting productsarchive_acc1_view1">Archive Settings</div>
+    <div class="productsarchive_acc1_view1_content">
+      <table class="form-table" role="presentation">
+        <tbody>
+          <tr>
+            <th scope="row">Use our style?</th>
+            <td>
+              <label class="toggle-switch">
+                <input type="checkbox" id="productsarchive-lb-en-gallery" name="productsarchive-lb-en-gallery" value="true" checked="checked">
+                <span class="toggle-slider"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Choose Preset</th>
+            <td>
+              <select name="productsarchive-button-position" class="productsarchive-input" id="productsarchive-button-position">
+                <option value="default" selected="selected">Default</option>
+                <option value="style2">Style 2</option>
+                <option value="style3">Style 3</option>
+                <option value="style4">Style 4</option>
+                <option value="style5">Style 5</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="productsarchive_buttn_setting productsarchive_acc1_view2">General Settings</div>
+    <div class="productsarchive_acc1_view2_content">
+      <table class="form-table" role="presentation">
+        <tbody>
+          <tr>
+            <th scope="row">Breadcrumb?</th>
+            <td>
+              <label class="toggle-switch">
+                <input type="checkbox" id="productsarchive-breadcrumb-check-gallery" name="productsarchive-breadcrumb-check-gallery" value="true">
+                <span class="toggle-slider"></span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="tab-content" id="tab2Content" style="display: none;">
+    <div class="productsarchive_buttn_setting productsarchive_acc2_view1">Archive Settings2</div>
+    <div class="productsarchive_acc2_view1_content">
+      <table class="form-table" role="presentation">
+        <tbody>
+          <tr>
+            <th scope="row">Use our style?</th>
+            <td>
+              <label class="toggle-switch">
+                <input type="checkbox" id="productsarchive-lb-en-gallery" name="productsarchive-lb-en-gallery" value="true" checked="checked">
+                <span class="toggle-slider"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Choose Preset</th>
+            <td>
+              <select name="productsarchive-button-position" class="productsarchive-input" id="productsarchive-button-position">
+                <option value="default" selected="selected">Default</option>
+                <option value="style2">Style 2</option>
+                <option value="style3">Style 3</option>
+                <option value="style4">Style 4</option>
+                <option value="style5">Style 5</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="productsarchive_buttn_setting productsarchive_acc2_view2">General Settings2</div>
+    <div class="productsarchive_acc2_view2_content">
+      <table class="form-table" role="presentation">
+        <tbody>
+          <tr>
+            <th scope="row">Breadcrumb?</th>
+            <td>
+              <label class="toggle-switch">
+                <input type="checkbox" id="productsarchive-breadcrumb-check-gallery" name="productsarchive-breadcrumb-check-gallery" value="true">
+                <span class="toggle-slider"></span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- now make two diffrent accordion. the one is in tab1Content and the secound one is in tab2Content. the items should be productsarchive_acc1_view1 and productsarchive_acc1_view2 in tab1Content and the items should be productsarchive_acc2_view1 and productsarchive_acc2_view2 in tab2Content.
+  and this is the content productsarchive_acc1_view1_content and productsarchive_acc1_view1_content for item productsarchive_acc1_view1 in tab1Content.
+  and this is the content productsarchive_acc2_view1_content and productsarchive_acc2_view1_content for item productsarchive_acc2_view1 in tab2Content. -->
+  <script>
+    // JavaScript code for search functionality
+    const searchInput = document.getElementById("search-icon");
+    const selectOptions = document.getElementById("select-style").options;
+
+    searchInput.addEventListener("input", function () {
+      const searchValue = this.value.toLowerCase();
+
+      for (let i = 0; i < selectOptions.length; i++) {
+        const option = selectOptions[i];
+        const label = option.textContent.toLowerCase();
+
+        if (label.includes(searchValue)) {
+          option.style.display = "";
+        } else {
+          option.style.display = "none";
+        }
+      }
+    });
+  </script>
+  <script>
+    // Add event listeners to tab buttons and show the corresponding content
+    const tabDButtons = document.querySelectorAll('.tab-btn');
+    const tabAContents = document.querySelectorAll('.tab-content');
+  
+    tabDButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        tabDButtons.forEach(btn => {
+          btn.classList.remove('active');
+        });
+  
+        tabAContents.forEach(content => {
+          content.style.display = 'none';
+        });
+  
+        button.classList.add('active');
+        tabAContents[index].style.display = 'block';
+      });
+    });
+  
+    // Show the first tab content by default
+    tabDButtons[0].click();
+
+// lllll
+
+  // Add event listeners to tab buttons and show the corresponding content
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      tabContents.forEach(content => {
+        content.style.display = 'none';
+      });
+
+      button.classList.add('active');
+      tabContents[index].style.display = 'block';
+    });
+  });
+
+  // Show the first tab content by default
+  tabButtons[0].click();
+
+  // Accordion functionality for tab1Content
+  const acc1Items = document.querySelectorAll('.productsarchive_acc1_view1, .productsarchive_acc1_view2');
+  acc1Items.forEach(item => {
+    item.addEventListener('click', () => {
+      acc1Items.forEach(accItem => {
+        if (accItem !== item) {
+          accItem.classList.remove('active');
+        }
+      });
+
+      item.classList.toggle('active');
+    });
+  });
+
+  // Accordion functionality for tab2Content
+  const acc2Items = document.querySelectorAll('.productsarchive_acc2_view1, .productsarchive_acc2_view2');
+  acc2Items.forEach(item => {
+    item.addEventListener('click', () => {
+      acc2Items.forEach(accItem => {
+        if (accItem !== item) {
+          accItem.classList.remove('active');
+        }
+      });
+
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+  
+  
+</body>
+</html>
+
+
+
+
+<!--  -->
+<table class="form-table" role="presentation" data-select2-id="select2-data-11-nx6l">
+  <tbody data-select2-id="select2-data-10-9n6t">
+    <tr>
+      <th scope="row">Font Color</th>
+      <td>
+        <input type="color" class="color-field" name="productsarchive-text-color-control" id="productsarchive-text-color-control" value="#000000">
+      </td>
+    </tr>
+  </tbody>
+</table>
+it's working but i want too the th text in inline. right now it's brack down when have a space or multiple words
+
+
+
+
+
+
+
+
