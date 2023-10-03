@@ -171,19 +171,6 @@ while (have_posts()) :
                     ?>
                 </div>
             </form>
-            <!-- <form action="#">
-                <div class="bwdspx-shop-now">
-                    <div class="bwdspx-quentity">
-                        <div class="bwdspx-quentity-box">
-                            <button class="bwdspx-minus bwdspx-minusx" type="button"><i class="fa-solid fa-minus"></i></button>
-                            <input disabled type="number" name="quantity" value="01"  min="1" step="1" inputmode="numeric" autocomplete="off">
-                            <button class="bwdspx-plus bwdspx-plusx" type="button"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <button type="submit" class="bwdspx-single_add_to_cart_button bwdspx-button">Add to cart</button>
-                    <button class="bwdspx-single-buy-now bwdspx-button">View cart</button>
-                </div>
-            </form> -->
             <div class="bwdspx-product-meta">
                 <?php
                 // if(get_post_meta(get_the_ID(), '_sku', true)){

@@ -111,15 +111,20 @@ The parent div class should like this <div class="style1 style2 style3 style... 
 16. This is related products. Design it as your wish and also you can add carousel.
 
 
+
+/////////////--------------------------/////////////////
+
+
 Follow the all options below from previous instructions:-
 01. This option is mising here.
 05. Here should to use only one image in one img tag. Shouldn't use multiple img tags.
 06. Some gallery images in many img tags. Should use multiple img tags and that all images should slide (As wish) in 05 option.
-15. First install the plugin in localhost and from dashboard enable that then view a product single page. Then find the tab section "Description" and "Reviews"
-. In review tab see all content and design it well-oriented. Note: After review tab design add some reviews.
+14. The quantity input not design what you did. Like plus minus icon. Use only input tag also you can check to install the plugin and see how has done!
+15. First install the plugin in localhost and from dashboard enable that then view a product single page. Then find the tab section "Description" and "Reviews". In review tab see all content and design it well-oriented. 
+Note: After review tab design add some reviews. Secound, Check all css conflict issue with wp default themes.
 
-@Plugin download from here ()
-
+@Plugin download from here (https://github.com/Ferdaussk/woopage-master.git)
+@See all previous instructions from here (https://github.com/Ferdaussk/woopage-master/blob/master/Product%20single%20page%20design%20instructions.php) 
 
 
 
