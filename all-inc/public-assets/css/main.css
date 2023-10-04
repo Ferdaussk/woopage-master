@@ -440,7 +440,10 @@ ul {
 .tab-pane.active{
     display: block;
 }
-
+.bwdspx-install-check-notice {
+    text-align: center;
+    color: #db6a47;
+}
 
 
 
