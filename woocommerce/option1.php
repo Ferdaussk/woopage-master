@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 get_header('shop');
 $lastInstalledSection = get_option('last_installed_section');
 if(empty($lastInstalledSection)){
-    echo '<h2 class="bwdspx-install-check-notice">'.esc_html__('Please install a demo!!', 'woopage-master').'</h2>';
+    echo '<h2 class="bwdspx-install-check-notice">'.esc_html__('Please install a demo!! See how to install ', 'woopage-master').'<a href="#" target="_blank">'.esc_html__('here!!', 'woopage-master').'</a></h2>';
 } else{
 $productsarchive_sale_check_value = get_option('productsarchive-sale-check-gallery');
 echo '<div class="bwdspx-single-product-main '.esc_attr($lastInstalledSection).'">';
@@ -157,24 +157,36 @@ while (have_posts()) :
                 </div>
             </div>
             
-            <form class="cart" method="post" enctype='multipart/form-data'>
-                <div class="bwdspx-shop-now">
-                    <div class="bwdspx-quentity">
-                        <div class="bwdspx-quentity-box quantity">
-                            <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
+            <?php
+            if ($product->is_type('variable')) {
+                if ($product->is_type('variable')) {
+                    woocommerce_variable_add_to_cart();
+                } else {
+                    woocommerce_template_single_add_to_cart();
+                }
+            } else{
+                ?>
+                <form class="cart" method="post" enctype='multipart/form-data'>
+                    <div class="bwdspx-shop-now">
+                        <div class="bwdspx-quentity">
+                            <div class="bwdspx-quentity-box quantity">
+                                <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="[0-9]*" inputmode="numeric">
+                            </div>
                         </div>
+                        <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="bwdspx-single_add_to_cart_button bwdspx-button single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
+                        <?php
+                        echo '<a href="' . wc_get_cart_url() . '" target="_blank" class="bwdspx-single-buy-now bwdspx-button">View Cart</a>';
+                        do_action('woocommerce_after_add_to_cart_button');
+                        if (function_exists('ti_wishlist_add_button')) {
+                            echo ti_wishlist_add_button();
+                        }
+                        ?>
                     </div>
-                    <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="bwdspx-single_add_to_cart_button bwdspx-button single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
-                    <?php
-                    echo '<a href="' . wc_get_cart_url() . '" target="_blank" class="bwdspx-single-buy-now bwdspx-button">View Cart</a>';
-                    do_action('woocommerce_after_add_to_cart_button');
-                    if (function_exists('ti_wishlist_add_button')) {
-                        echo ti_wishlist_add_button();
-                    }
-                    ?>
-                </div>
-            </form>
-            
+                </form>
+                <?php
+            }
+            ?>
+
             <!-- <form action="#">
                 <div class="bwdspx-shop-now">
                     <div class="bwdspx-quentity">

@@ -444,7 +444,10 @@ ul {
     text-align: center;
     color: #db6a47;
 }
-
+.bwdspx-install-check-notice a, .bwdspx-install-check-notice:hover a {
+    text-decoration: revert;
+    color: #1683d3;
+}
 
 
 
